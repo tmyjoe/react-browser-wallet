@@ -14,6 +14,7 @@
   "dependencies": {
     "crypto-browserify": "^3.11.0",
     "eth-lightwallet": "^2.5.3",
+    "hooked-web3-provider": "^1.0.0",
     "json-loader": "^0.5.4",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
