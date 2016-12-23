@@ -8,6 +8,9 @@ module.exports = {
     devServer: {
         outputPath: path.join(__dirname, 'build'),
     },
+    resolve: {
+        extensions: ['', '.js', '.jsx'],
+    },
     output: { path: path.join(__dirname, 'build'), filename: 'bundle.js' },
     plugins: [
         new CleanWebpackPlugin(['build']),
