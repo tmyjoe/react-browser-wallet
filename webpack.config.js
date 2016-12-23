@@ -5,11 +5,8 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: './app/main.jsx',
-    devServer: {
-        outputPath: path.join(__dirname, 'build'),
-    },
     resolve: {
-        extensions: ['', '.js', '.jsx'],
+        extensions: ['*', '.js', '.jsx'],
     },
     output: { path: path.join(__dirname, 'build'), filename: 'bundle.js' },
     plugins: [
@@ -27,7 +24,8 @@ module.exports = {
         }),
     ],
     module: {
-        loaders: [
+        rules: [
+            { test: /\.json$/, loader: "json-loader" },
             {
                 test: /.jsx?$/,
                 loader: 'babel-loader',
