@@ -17,7 +17,7 @@ function mapDispatchToProps(dispatch, ownProps) {
             const address = ks.getAddresses()[0];
             web3.eth.getBalance(address, (e, res) => {
                 console.log(res)
-                dispatch(refreshBalance(res))
+                dispatch(refreshBalance(res.toNumber()))
             })
         }
     }
