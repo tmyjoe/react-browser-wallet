@@ -5,7 +5,8 @@ const initialState = {
 export default function reducer(state = initialState, action) {
     switch(action.type) {
         case 'REFRESH_BALANCE':
-            return { balance: action.value }
+            console.log("reduce")
+            return { balance: action.balance }
         default:
             return state
     }

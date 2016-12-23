@@ -67,16 +67,12 @@ const salt = "QH26xdbSJjBJe0G73JUpDK0l2oVBr4TyiXiP904HmrQ="
 //     });
 // });
 
-
 const ks = keyStore.deserialize(localStorage.getItem("wallet"))
 
-const web3Provider = new Web3.providers.HttpProvider("https://ropsten.infura.io/d5qnTomO9clq9Eq2HxUY")
-// const web3Provider = new Web3.providers.HttpProvider("http://localhost:8545")
-//
-// const web3Provider = new HookedWeb3Provider({
-//     host: "https://ropsten.infura.io/d5qnTomO9clq9Eq2HxUY",
-//     transaction_signer: ks
-// });
+const web3Provider = new HookedWeb3Provider({
+    host: "https://ropsten.infura.io/d5qnTomO9clq9Eq2HxUY",
+    transaction_signer: ks
+});
 
 web3.setProvider(web3Provider)
 
