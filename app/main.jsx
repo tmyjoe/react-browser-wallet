@@ -8,8 +8,8 @@ import Web3 from 'web3';
 import HookedWeb3Provider from 'hooked-web3-provider';
 
 import App from './container/balance'
-import reducer from './reducer/reducer'
-import { updateAddress } from './action/actions.jsx'
+import reducer from './reducer'
+import { updateAddress } from './actions.jsx'
 
 const store = createStore(reducer)
 
