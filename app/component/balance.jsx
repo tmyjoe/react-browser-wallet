@@ -5,11 +5,14 @@ export default class Balance extends Component {
 
     render() {
         console.log(this.props)
-        return (  <div>
-            <span>ETH</span>
-            <span>{this.props.balance}</span>
-            <button onClick={() => this.props.handleClick()}> Refresh</button>
-        </div>
+        return (
+            <div>
+                <p>{this.props.address}</p>
+                <p>ETH</p>
+                <p>{this.props.balance}</p>
+                <button onClick={() => this.props.handleClick()}> Refresh</button>
+                <img src="../sample.png" />
+            </div>
         );
     }
 }

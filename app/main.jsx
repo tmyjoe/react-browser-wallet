@@ -9,6 +9,7 @@ import HookedWeb3Provider from 'hooked-web3-provider';
 
 import App from './container/balance'
 import reducer from './reducer/reducer'
+import { updateAddress } from './action/actions.jsx'
 
 const store = createStore(reducer)
 
@@ -77,11 +78,13 @@ const web3Provider = new HookedWeb3Provider({
 web3.setProvider(web3Provider)
 
 const address = ks.getAddresses()[0];
-console.log(address)
 
-web3.eth.getBalance("0x874b54a8bd152966d63f706bae1ffeb0411921e5", (e, res) => {
+web3.eth.getBalance(address, (e, res) => {
     console.log(e)
-    console.log("balance " + res)
+    console.log("address: " + address)
+    console.log("balance: " + res)
+
+    store.dispatch(updateAddress(address))
 
     render(
         <Provider store={store}>
