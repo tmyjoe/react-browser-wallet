@@ -2,6 +2,9 @@ import lightwalelt from 'eth-lightwallet';
 import Web3 from 'web3';
 import HookedWeb3Provider from 'hooked-web3-provider';
 
+import localStorageUtils from './LocalStorageUtils';
+import * as lsKeys from '../constants/LocalStorageKeys';
+
 export default function configureWallet() {
     const keyStore = lightwalelt.keystore
     const web3 = new Web3()
@@ -10,7 +13,7 @@ export default function configureWallet() {
     const seed = "element concert board toddler kingdom clown that choice process ugly language reform"
     const salt = "QH26xdbSJjBJe0G73JUpDK0l2oVBr4TyiXiP904HmrQ="
 
-    const ks = keyStore.deserialize(localStorage.getItem("wallet"))
+    const ks = keyStore.deserialize(localStorageUtils.get(lsKeys.WALLET))
 
     const web3Provider = new HookedWeb3Provider({
         host: "https://ropsten.infura.io/d5qnTomO9clq9Eq2HxUY",

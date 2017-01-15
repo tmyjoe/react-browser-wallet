@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import Sendform from '../component/sendform.jsx'
-import Balance from '../component/balance.jsx'
-import {refreshBalance} from '../actions.js'
+import Sendform from '../components/Sendform.jsx'
+import Balance from '../components/Balance.jsx'
+import {refreshBalance} from '../actions/index.js'
 
 class RootContainer extends Component {
   render() {

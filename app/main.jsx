@@ -3,10 +3,10 @@ import { render } from 'react-dom';
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
-import App from './container/index'
-import { updateAddress } from './actions'
+import App from './containers/index'
+import { updateAddress } from './actions/index'
 import configureStore from './store/configureStore'
-import configureWallet from './wallet'
+import configureWallet from './utils/Wallet'
 
 const store = configureStore()
 const wallet = configureWallet()

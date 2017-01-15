@@ -10,7 +10,7 @@ class Sendform extends Component {
                 <form onSubmit={handleSubmit}>
                     <Field name="address" component="input" type="text"/>
                     <Field name="amount" component="input" type="number"/>
-                    <button type="submit">Submit</button>
+                    <button type="submit"> Submit </button>
                 </form>
             </div>
         );

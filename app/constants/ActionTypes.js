@@ -1,2 +1,3 @@
+
 export const UPDATE_ADDRESS = 'UPDATE_ADDRESS'
 export const REFRESH_BALANCE = 'REFRESH_BALANCE'

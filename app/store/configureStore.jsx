@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware } from 'redux';
-import rootReducer from '../reducer/index';
+import rootReducer from '../reducers/index';
 
 // const createStoreWithMiddleware = applyMiddleware(thunkMiddleware)(createStore);
 
