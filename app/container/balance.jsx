@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+
 import Sendform from '../component/sendform.jsx'
 import Balance from '../component/balance.jsx'
 import { refreshBalance } from '../actions.jsx'
@@ -9,7 +10,11 @@ class RootContainer extends Component {
         return (
             <div>
                 <Sendform />
-                <Balance />
+                <Balance
+                    address={this.props.address}
+                    balance={this.props.balance}
+                    onRefreshClick={this.props.handleClick}
+                />
             </div>
         )
     }

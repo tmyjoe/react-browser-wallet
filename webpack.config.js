@@ -13,7 +13,7 @@ module.exports = {
         new CleanWebpackPlugin(['build']),
         new CopyWebpackPlugin([
             {
-                context: path.resolve(__dirname, 'app/static'),
+                context: path.resolve(__dirname, 'static'),
                 from: '**/*',
                 to: path.resolve(__dirname, 'build'),
             },
