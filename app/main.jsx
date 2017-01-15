@@ -3,12 +3,12 @@ import { render } from 'react-dom';
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
-import App from './container/balance'
-import {updateAddress} from './actions'
-import rootReducer from './reducer'
+import App from './container/index'
+import { updateAddress } from './actions'
+import configureStore from './store/configureStore'
 import configureWallet from './wallet'
 
-const store = createStore(rootReducer, {})
+const store = configureStore()
 const wallet = configureWallet()
 
 const address = wallet.keyStore.getAddresses()[0]

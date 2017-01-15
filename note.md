@@ -17,6 +17,9 @@
         - Transaction ID
         - Amount
         - Address from/to 
+        
+- 
        
        
-see: https://github.com/gaearon/redux-devtools/tree/master/examples/todomvc
+Architecture design will follow this.
+https://github.com/andrewngu/sound-redux

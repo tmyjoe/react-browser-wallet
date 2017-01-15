@@ -1,13 +1,15 @@
 import { combineReducers } from 'redux'
 import { reducer as formReducer } from 'redux-form'
 
+import * as types from '../constant/ActionTypes'
+
 function balanceReducer(state = {balance: 0, address: ""}, action) {
     switch(action.type) {
-        case 'REFRESH_BALANCE':
+        case types.REFRESH_BALANCE:
             return Object.assign({}, state, {
                 balance: action.balance,
             });
-        case 'UPDATE_ADDRESS':
+        case types.UPDATE_ADDRESS:
             return Object.assign({}, state, {
                 address: action.address,
             });
