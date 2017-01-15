@@ -18,3 +18,5 @@
         - Amount
         - Address from/to 
        
+       
+see: https://github.com/gaearon/redux-devtools/tree/master/examples/todomvc

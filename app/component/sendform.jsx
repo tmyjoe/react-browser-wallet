@@ -1,30 +1,25 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'; // {Reactまで囲むと動かないので調べる}
+import { Field, reduxForm } from 'redux-form';
 
-export default class Sendform extends Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            receiverAddress: '',
-            sendAmount: 0
-        };
-    }
-
-    handleAddressChange(event) {
-        this.setState({receiverAddress: event.target.value});
-    }
-
-    handleAmountChange(event) {
-        this.setState({sendAmount: event.target.value})
-    }
+class Sendform extends Component {
 
     render() {
+        const { handleSubmit } = this.props;
         return (
             <div>
-                <input type="text" value={this.state.receiverAddress} onChange={this.handleAddressChange} />
-                <input type="number" value={this.state.sendAmount} onChange={this.handleAmountChange}/>
-                <button onClick={() => this.props.handleSend()}> Send</button>
+                <form onSubmit={handleSubmit}>
+                    <Field name="address" component="input" type="text"/>
+                    <Field name="amount" component="input" type="number"/>
+                    <button type="submit">Submit</button>
+                </form>
             </div>
         );
     }
 }
+
+
+Sendform = reduxForm({
+    form: 'sendform' // a unique name for this form
+})(Sendform);
+
+export default Sendform;

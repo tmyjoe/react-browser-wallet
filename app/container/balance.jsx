@@ -9,10 +9,12 @@ class RootContainer extends Component {
     render() {
         return (
             <div>
-                <Sendform />
+                <Sendform
+                    onSubmit={this.props.handleSubmit}
+                />
                 <Balance
-                    address={this.props.address}
-                    balance={this.props.balance}
+                    address={this.props.balance.address}
+                    balance={this.props.balance.balance}
                     onRefreshClick={this.props.handleClick}
                 />
             </div>
@@ -27,6 +29,8 @@ function mapStateToProps(state, ownProps) {
 function mapDispatchToProps(dispatch, ownProps) {
     return {
         handleClick: () => {
+            console.log("handleClick")
+
             const ks = ownProps.keyStore
             const web3 = ownProps.web3
             const address = ks.getAddresses()[0];
@@ -35,6 +39,9 @@ function mapDispatchToProps(dispatch, ownProps) {
                 console.log(res)
                 dispatch(refreshBalance(res.toNumber()))
             })
+        },
+        handleSubmit: () => {
+            console.log("submitted")
         }
     }
 }

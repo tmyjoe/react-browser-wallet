@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 
-
-export default class Balance extends Component {
+/**
+ * UI Component express the wallet balance.
+ */
+class Balance extends Component {
 
     render() {
         return (
@@ -18,5 +20,8 @@ export default class Balance extends Component {
 
 Balance.propTypes = {
     address: React.PropTypes.string,
-    balance: React.PropTypes.number
+    balance: React.PropTypes.number,
+    onRefreshClick: React.PropTypes.func
 };
+
+export default Balance
