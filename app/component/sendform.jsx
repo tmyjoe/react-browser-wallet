@@ -17,7 +17,6 @@ class Sendform extends Component {
     }
 }
 
-
 Sendform = reduxForm({
     form: 'sendform' // a unique name for this form
 })(Sendform);

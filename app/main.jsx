@@ -8,11 +8,13 @@ import {updateAddress} from './actions'
 import rootReducer from './reducer'
 import configureWallet from './wallet'
 
-const store = createStore(rootReducer)
+const store = createStore(rootReducer, {})
 const wallet = configureWallet()
+
 const address = wallet.keyStore.getAddresses()[0]
 
 wallet.web3.eth.getBalance(address, (e, res) => {
+
     console.log(e)
     console.log("address: " + address)
     console.log("balance: " + res)
