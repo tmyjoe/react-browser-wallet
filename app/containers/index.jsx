@@ -24,11 +24,15 @@ class RootContainer extends Component {
 }
 
 function mapStateToProps(state, ownProps) {
+
   const {address, balance} = state.balance;
+  const {web3, keyStore} = state.wallet;
 
   return {
     address,
-    balance
+    balance,
+    web3,
+    keyStore
   }
 }
 
@@ -39,6 +43,7 @@ function mapDispatchToProps(dispatch, ownProps) {
   return {
     handleClick: () => {
       console.log("handleClick")
+      console.log(ks)
       const address = ks.getAddresses()[0];
 
       web3.eth.getBalance(address, (e, res) => {

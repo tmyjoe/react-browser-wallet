@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux'
 import { reducer as formReducer } from 'redux-form'
 
+import wallet from '../reducers/wallet';
 import balance from '../reducers/balance';
 
 /**
@@ -11,6 +12,7 @@ import balance from '../reducers/balance';
  * see http://redux.js.org/docs/recipes/reducers/BeyondCombineReducers.html
  */
 const rootReducer = combineReducers({
+    wallet,
     balance,
     form: formReducer
 })
