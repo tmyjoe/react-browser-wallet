@@ -10,15 +10,19 @@ export default class Sendform extends Component {
         };
     }
 
-    handleChange(event) {
+    handleAddressChange(event) {
         this.setState({receiverAddress: event.target.value});
+    }
+
+    handleAmountChange(event) {
+        this.setState({sendAmount: event.target.value})
     }
 
     render() {
         return (
             <div>
-                <input type="text" value={this.state.receiverAddress} onChange={this.handleChange} />
-                <input type="number" value={this.state.sendAmount} />
+                <input type="text" value={this.state.receiverAddress} onChange={this.handleAddressChange} />
+                <input type="number" value={this.state.sendAmount} onChange={this.handleAmountChange}/>
                 <button onClick={() => this.props.handleSend()}> Send</button>
             </div>
         );
