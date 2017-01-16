@@ -9,8 +9,9 @@ const initialState = {
  * Reducer for balance components
  */
 export default function balanceReducer(state = initialState, action) {
+  console.log(action)
   switch (action.type) {
-    case types.REFRESH_BALANCE:
+     case types.BALANCE_REFRESHED:
       return Object.assign({}, state, {
         balance: action.balance,
       });

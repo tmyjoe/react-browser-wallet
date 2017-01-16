@@ -3,11 +3,12 @@ import { connect } from 'react-redux'
 
 import Sendform from '../components/Sendform.jsx'
 import Balance from '../components/Balance.jsx'
-import {refreshBalance} from '../actions/index.js'
+import { refreshBalance } from '../actions/index.js'
 
 class RootContainer extends Component {
+
   render() {
-    const {address, balance, handleSubmit, handleClick} = this.props;
+    const {address, balance, handleSubmit, handleClick, web3, keyStore} = this.props;
 
     return (
       <div>
@@ -17,7 +18,10 @@ class RootContainer extends Component {
         <Balance
           onRefreshClick={handleClick}
           address={address}
-          balance={balance}/>
+          balance={balance}
+          web3={web3}
+          keyStore={keyStore}
+        />
       </div>
     )
   }
@@ -25,8 +29,10 @@ class RootContainer extends Component {
 
 function mapStateToProps(state, ownProps) {
 
+  console.log("satetProps")
+
+  const {web3, keyStore} = state;
   const {address, balance} = state.balance;
-  const {web3, keyStore} = state.wallet;
 
   return {
     address,
@@ -37,19 +43,11 @@ function mapStateToProps(state, ownProps) {
 }
 
 function mapDispatchToProps(dispatch, ownProps) {
-  const ks = ownProps.keyStore
-  const web3 = ownProps.web3
 
   return {
     handleClick: () => {
-      console.log("handleClick")
-      console.log(ks)
-      const address = ks.getAddresses()[0];
-
-      web3.eth.getBalance(address, (e, res) => {
-        console.log(res)
-        dispatch(refreshBalance(res.toNumber()))
-      })
+      console.log(ownProps.address)
+      dispatch(refreshBalance())
     },
     handleSubmit: () => {
       console.log("submitted")

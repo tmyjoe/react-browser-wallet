@@ -2,7 +2,7 @@ import lightwallet from 'eth-lightwallet';
 import Web3 from 'web3';
 import HookedWeb3Provider from 'hooked-web3-provider';
 
-import { walletCreated } from '../actions/index.js'
+import { walletCreated, updateAddress } from '../actions/index.js'
 
 export default function configureWallet(store) {
   const keyStore = lightwallet.keystore
@@ -38,6 +38,7 @@ export default function configureWallet(store) {
 
       web3.setProvider(web3Provider);
 
+      store.dispatch(updateAddress(addr))
       store.dispatch(walletCreated(ks, web3))
     });
   });

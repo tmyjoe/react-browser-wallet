@@ -1,2 +1,2 @@
 
-export const WALLET = 'wallet'
+export const WALLET = 'web3Reducer'
